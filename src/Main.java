@@ -1,5 +1,11 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        //Piece test = new Piece(true, 'K');
+        //System.out.println(test.toString());
+
+        Chess game = new Chess();
+        game.display();
+
+
     }
 }
