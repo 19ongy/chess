@@ -38,3 +38,4 @@ public class Chess {
 
 
 }
+//all pieces displayed in their starting positions and stuff
