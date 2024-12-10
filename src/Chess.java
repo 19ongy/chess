@@ -117,3 +117,4 @@ public class Chess {
 
 }
 //all pieces displayed in their starting positions and stuff
+//implement move rule for the King and one other piece
