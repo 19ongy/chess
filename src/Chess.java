@@ -1,5 +1,10 @@
+import java.util.Scanner;
+
 public class Chess {
     private Piece[][] board; //the chessboard
+    public char letters[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+    public Chess[][] startCoord;
+    public Chess[][] endCoord;
 
     //constructor
     public Chess(){
@@ -26,11 +31,11 @@ public class Chess {
 
         //place queens
         board[0][3] = new Queen(false);
-        board[7][4] = new Queen(true);
+        board[7][3] = new Queen(true);
 
         //place kings
         board[0][4] = new king(false);
-        board[7][3] = new king(true);
+        board[7][4] = new king(true);
 
     }
 
@@ -52,9 +57,63 @@ public class Chess {
         System.out.println("    A B C D E F G H");
     }
 
+    //inputted answer
+    public String getPosition(){
+        Scanner input = new Scanner(System.in);
+        String coords = input.nextLine();
+        return coords;
+    }
+
+    /*
+    public boolean move(){
+        //asks the player for their move
+        System.out.println("Location of piece you want to move: ");
+        String start = getPosition();
+        System.out.println("Location of where you want to move it to: ");
+        String end = getPosition();
+    }
 
 
+    private int coordToRow(String coord){
+        char rowChar = choord.charAT
+    }
 
+     */
+
+    public void setCoords(int a, int b){
+        for(int i = 0; i<7; i++){
+            if(a == letters[i]){
+                System.out.println(i);
+            }
+        }
+
+    }
+    //gets the string version of the inputted answer
+    public void positionOf(){
+        System.out.println("Location of the piece you want to move: ");
+        String start = getPosition();
+        System.out.println("location of where you want to move it to: ");
+        String end = getPosition();
+
+        System.out.println(start.charAt(0));
+        System.out.println(start.charAt(1));
+        for(int i = 0; i<7; i++){
+            if(start.charAt(0) == letters[i]){
+                System.out.println(i);
+                startCoord = Chess[i][start.charAt(1)];
+            }
+        }
+
+
+    }
+
+    public void positionOfToCoords(){
+        for(int i = 0; i<7; i++){
+            if(start.charAt(0) == letters[i]){
+                System.out.println(i);
+            }
+        }
+    }
 
 }
 //all pieces displayed in their starting positions and stuff

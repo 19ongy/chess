@@ -5,6 +5,7 @@ public class Main {
 
         Chess game = new Chess();
         game.display();
+        game.positionOf();
 
 
     }

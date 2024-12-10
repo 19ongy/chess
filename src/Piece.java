@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Piece {
     //class fields
     private char symbol;
@@ -18,4 +20,7 @@ public class Piece {
             return Character.toString(symbol);
         }
     }
+
+    //function for moving the piece
+
 }
