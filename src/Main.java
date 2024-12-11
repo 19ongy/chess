@@ -26,6 +26,14 @@ public class Main {
         boolean knightResult = game.movePiece(Startposition, EndPosition);
         System.out.println(knightResult);
 
+        //sees if the rook can move
+        boolean rookResult = game.movePiece(Startposition, EndPosition);
+        System.out.println(rookResult);
+
+        //sees if the bishop can move
+        boolean bishopResult = game.movePiece(Startposition, EndPosition);
+        System.out.println(bishopResult);
+
 
     }
 }

@@ -8,11 +8,8 @@ public class knight extends Piece{
         int rowDiff = positionE[0] - positionS[0];
         int colDiff = positionE[1] - positionS[1];
 
-        if((rowDiff == 2 || rowDiff == -2) && (colDiff == 1 || colDiff == -1)){
-            return true;
-        }else{
-            return false;
-        }
+        return (rowDiff == 2 || rowDiff == -2) && (colDiff == 1 || colDiff == -1);
+        //if it move like a L shape lying down
 
     }
 }

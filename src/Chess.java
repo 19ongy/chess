@@ -110,14 +110,21 @@ public class Chess {
         if(piece.equals("k")){
             king moveKing = new king(false);
             return king.canMove(startPos, endPos);
+
+
         }else if(piece.equals("n")){
             knight moveKnight = new knight(false);
             return knight.canMove(startPos, endPos);
+
+        }else if(piece.equals("r")){
+            rook moveRook = new rook(false);
+            return rook.canMove(startPos, endPos);
+        }else if(piece.equals("b")) {
+            bishop moveBishop = new bishop(false);
+            return bishop.canMove(startPos, endPos);
         }
         return false;
     }
-
-
 }
 //all pieces displayed in their starting positions and stuff
 //implement move rule for the King and one other piece
