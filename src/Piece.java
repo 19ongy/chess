@@ -22,5 +22,6 @@ public class Piece {
     }
 
     //function for moving the piece
+    //checks if the move is valid
 
 }

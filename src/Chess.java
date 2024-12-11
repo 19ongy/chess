@@ -42,7 +42,7 @@ public class Chess {
     //shows the current board
     public void display(){
         for(int row = 7; row>=0; row-- ){
-            System.out.print(String.valueOf(row) + "   "); //prints out the numbers on the side
+            System.out.print(String.valueOf(row+1) + "   "); //prints out the numbers on the side
             for(int col = 0; col<8; col++){
                 if(board[row][col] != null) {
                     System.out.print(board[row][col] + " ");
@@ -57,64 +57,68 @@ public class Chess {
         System.out.println("    A B C D E F G H");
     }
 
-    //inputted answer
+    //gets user input for coords of piece
     public String getPosition(){
         Scanner input = new Scanner(System.in);
         String coords = input.nextLine();
         return coords;
     }
 
-    /*
-    public boolean move(){
-        //asks the player for their move
-        System.out.println("Location of piece you want to move: ");
-        String start = getPosition();
-        System.out.println("Location of where you want to move it to: ");
-        String end = getPosition();
-    }
+    //needs to take in an input from the user about the start and end location of piece
+    //needs to convert it into rows and columns
 
-
-    private int coordToRow(String coord){
-        char rowChar = choord.charAT
-    }
-
-     */
-
-    public void setCoords(int a, int b){
-        for(int i = 0; i<7; i++){
-            if(a == letters[i]){
-                System.out.println(i);
-            }
-        }
-
-    }
-    //gets the string version of the inputted answer
-    public void positionOf(){
+    //taking in the input?
+    public String positionOfStart() {
         System.out.println("Location of the piece you want to move: ");
         String start = getPosition();
+        return start;
+    }
+
+    public String positionOfEnd() {
         System.out.println("location of where you want to move it to: ");
         String end = getPosition();
+        return end;
+    }
 
-        System.out.println(start.charAt(0));
-        System.out.println(start.charAt(1));
-        for(int i = 0; i<7; i++){
-            if(start.charAt(0) == letters[i]){
-                System.out.println(i);
-                startCoord = Chess[i][start.charAt(1)];
+    //meant to find the piece on the board and stuff
+    public String findPiece(int[] position){
+        System.out.println("Coords : " + position[0] + " , " + position[1]);
+        System.out.println("The piece is: " + board[position[0]][position[1]]);
+        return String.valueOf(board[position[0]][position[1]]);
+    }
+
+    //user input into the chess pieces and location
+    //converts the a7 to the [][] values on the 2d array thingy
+    public int[] getBoardPosition(String location){
+        int row = 0;
+        int col = 0;
+
+        for( int i = 0; i<letters.length; i++){
+            if(location.charAt(0) ==(letters[i])){
+                col = i;
+                break;
             }
         }
 
-
+        //System.out.println(location.charAt(1));
+        row = location.charAt(1) - '1';
+        return new int[]{row, col};
     }
 
-    public void positionOfToCoords(){
-        for(int i = 0; i<7; i++){
-            if(start.charAt(0) == letters[i]){
-                System.out.println(i);
-            }
+    public boolean movePiece(int[] startPos, int[] endPos){
+        String piece = findPiece(startPos);
+        if(piece.equals("k")){
+            king moveKing = new king(false);
+            return king.canMove(startPos, endPos);
+        }else if(piece.equals("n")){
+            knight moveKnight = new knight(false);
+            return knight.canMove(startPos, endPos);
         }
+        return false;
     }
+
 
 }
 //all pieces displayed in their starting positions and stuff
 //implement move rule for the King and one other piece
+
