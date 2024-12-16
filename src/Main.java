@@ -3,6 +3,9 @@ public class Main {
         //Piece test = new Piece(true, 'K');
         //System.out.println(test.toString());
 
+        System.out.println("chess game yippeeeee");
+        System.out.println("Enter moves through the letter of the column, and number of row ,, e.g. a6 or g1");
+        System.out.println("");
         //makes a new chess board
         Chess game = new Chess();
         game.display();
@@ -18,22 +21,9 @@ public class Main {
         int[] EndPosition  = game.getBoardPosition(game.positionOfEnd());
         System.out.println("Coords : " + EndPosition[0] + " , " + EndPosition[1]);
 
-        //sees if the King can move
-        boolean kingResult = game.movePiece(Startposition, EndPosition);
-        System.out.println(kingResult);
-
-        //sees if the knight can move
-        boolean knightResult = game.movePiece(Startposition, EndPosition);
-        System.out.println(knightResult);
-
-        //sees if the rook can move
-        boolean rookResult = game.movePiece(Startposition, EndPosition);
-        System.out.println(rookResult);
-
-        //sees if the bishop can move
-        boolean bishopResult = game.movePiece(Startposition, EndPosition);
-        System.out.println(bishopResult);
-
-
+        //sees if the piece can move
+        boolean moveResult = game.movePiece(Startposition, EndPosition);
+        System.out.println(moveResult);
+        game.boardMove(Startposition, EndPosition);
     }
 }

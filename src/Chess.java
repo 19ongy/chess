@@ -105,23 +105,56 @@ public class Chess {
         return new int[]{row, col};
     }
 
+    //function that checks it there is a piece there first
+    public boolean checkPiece(int[] endPos){
+        if(board[endPos[0]][endPos[1]] != null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    //functions that moves the board pieces
+    public void boardMove(int[] startPos, int[] endPos){
+        //System.out.println(board[startPos[0]][startPos[1]]);
+        board[endPos[0]][endPos[1]] = board[startPos[0]][startPos[1]];
+        //System.out.println(board[endPos[0]][endPos[1]]);
+        board[startPos[0]][startPos[1]] = null;
+        display();
+
+    }
     public boolean movePiece(int[] startPos, int[] endPos){
         String piece = findPiece(startPos);
-        if(piece.equals("k")){
-            king moveKing = new king(false);
-            return king.canMove(startPos, endPos);
 
 
-        }else if(piece.equals("n")){
-            knight moveKnight = new knight(false);
-            return knight.canMove(startPos, endPos);
+        if(checkPiece(endPos) == false) {
+            System.out.println("There is already a piece there, you cannot move.");
+            return false;
+        }
 
-        }else if(piece.equals("r")){
-            rook moveRook = new rook(false);
-            return rook.canMove(startPos, endPos);
-        }else if(piece.equals("b")) {
-            bishop moveBishop = new bishop(false);
-            return bishop.canMove(startPos, endPos);
+
+        boolean isWhite = Character.isLowerCase(piece.charAt(0));
+        String normalizedPiece = piece.toLowerCase();
+
+        if (normalizedPiece.equals("k")) {
+            king moveKing = new king(isWhite);
+            return moveKing.canMove(startPos, endPos);
+
+        } else if (normalizedPiece.equals("n")) {
+            knight moveKnight = new knight(isWhite);
+            return moveKnight.canMove(startPos, endPos);
+        } else if (normalizedPiece.equals("r")) {
+            rook moveRook = new rook(isWhite);
+            return moveRook.canMove(startPos, endPos);
+        } else if (normalizedPiece.equals("b")) {
+            bishop moveBishop = new bishop(isWhite);
+            return moveBishop.canMove(startPos, endPos);
+        } else if (normalizedPiece.equals("q")) {
+            Queen moveQueen = new Queen(isWhite);
+            return moveQueen.canMove(startPos, endPos);
+        } else if (normalizedPiece.equals("p")) {
+            pawn movePawn = new pawn(isWhite);
+            return movePawn.canMove(startPos, endPos, isWhite);
         }
         return false;
     }

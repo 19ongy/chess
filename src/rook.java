@@ -13,9 +13,16 @@ public class rook extends Piece {
         else{
             return (positionS[1] == positionE[1]) && rowDiff <= 8;
         }
-
-
-
     }
+
+    /*
+    //does it jump over any pieces?
+    public boolean jumpOver(int[] positionS, int[] positionE){
+        for(int i = 0; i<positionS[0];i++){
+
+        }
+    }
+
+     */
 
 }

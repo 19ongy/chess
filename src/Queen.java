@@ -9,13 +9,14 @@ public class Queen extends Piece{
         int colDiff = Math.abs(positionE[1] - positionS[1]);
 
 
-        if((positionS[0] == positionE[0] ) && (colDiff <= 8)) {
+        if((rowDiff == 0) && (colDiff <= 8)){
             return true;
-        }else if((positionS[1] == positionE[1]) && rowDiff <= 8){
+        }else if((colDiff == 0) && (rowDiff <= 8)){
             return true;
-        }else if((rowDiff == colDiff) || (rowDiff == -colDiff) || (-rowDiff == colDiff)){
-            return true;
+        }else{
+            return (rowDiff == colDiff) || (rowDiff == -colDiff) || (-rowDiff == colDiff);
+
         }
-        return false;
+
     }
 }
