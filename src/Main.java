@@ -24,6 +24,10 @@ public class Main {
         //sees if the piece can move
         boolean moveResult = game.movePiece(Startposition, EndPosition);
         System.out.println(moveResult);
-        game.boardMove(Startposition, EndPosition);
+        if(moveResult == true){
+            game.boardMove(Startposition, EndPosition);
+        }else{
+            System.out.println("Invalid move");
+        }
     }
 }

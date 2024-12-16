@@ -121,7 +121,6 @@ public class Chess {
         //System.out.println(board[endPos[0]][endPos[1]]);
         board[startPos[0]][startPos[1]] = null;
         display();
-
     }
     public boolean movePiece(int[] startPos, int[] endPos){
         String piece = findPiece(startPos);
